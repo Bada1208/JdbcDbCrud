@@ -44,7 +44,7 @@ public class Customer {
         this.customerSpecialties = customerSpecialtiesSet;
     }
 
-    public void setDeveloperAccount(Account customerAccount) {
+    public void setCustomerAccount(Account customerAccount) {
         this.customerAccount = customerAccount;
     }
 
