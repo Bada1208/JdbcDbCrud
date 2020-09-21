@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class SpecialtyMapper {
 
-    public static ArrayList<Specialty> mapToSkill(ResultSet resultSet) throws SQLException {
+    public static ArrayList<Specialty> mapToSpecialties(ResultSet resultSet) throws SQLException {
         ArrayList<Specialty> specialtyList = new ArrayList<>();
         while (resultSet.next()) {
             Specialty specialty = new Specialty();
@@ -17,5 +17,12 @@ public class SpecialtyMapper {
             specialtyList.add(specialty);
         }
         return specialtyList;
+    }
+
+    public static Specialty mapperSpecialty(ResultSet resultSet) throws SQLException {
+        Specialty specialty = new Specialty();
+        specialty.setId(resultSet.getLong("Id"));
+        specialty.setSpecialty(resultSet.getString("Specialty"));
+        return specialty;
     }
 }

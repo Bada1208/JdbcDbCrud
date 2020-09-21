@@ -32,6 +32,12 @@ public class Customer {
         this.customerAccount = account;
     }
 
+    public Customer(Long id, String name, String surname) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -75,9 +81,16 @@ public class Customer {
     public String getName() {
         return name;
     }
+    public String getSpecialties() {
+        String specialtyString = "";
+        for (Specialty s : customerSpecialties) {
+            specialtyString += "{" + s.getId() + "}";
+        }
+        return specialtyString;
+    }
 
     @Override
     public String toString() {
-        return id + " " + name + " " + surname + "" + customerAccount.getId() + " " + customerSpecialties.toString();
+        return id + " " + name + " " + surname + " " + customerAccount.getId() + " " + getSpecialties();
     }
 }

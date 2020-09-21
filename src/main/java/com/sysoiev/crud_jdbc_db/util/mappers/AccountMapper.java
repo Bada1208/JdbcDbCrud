@@ -18,4 +18,10 @@ public class AccountMapper {
         }
         return accountList;
     }
+    public static Account mapperAccount(ResultSet resultSet) throws SQLException {
+        Account account = new Account();
+        account.setId(resultSet.getLong("id"));
+        account.setAccountStatus(AccountStatus.valueOf(resultSet.getString("account_status")));
+        return account;
+    }
 }
