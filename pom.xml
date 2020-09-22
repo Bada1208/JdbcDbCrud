@@ -19,7 +19,7 @@
         <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
-            <version>4.0.0</version>
+            <version>3.6.1</version>
         </dependency>
     </dependencies>
 
@@ -31,7 +31,7 @@
                 <version>3.6.1</version>
                 <configuration>
                     <propertyFile>src/main/resources/liquibase/liquibase.properties</propertyFile>
-                    <changeLogFile>src/main/resources/liquibase/db-changelog-master.yaml</changeLogFile>
+                    <changeLogFile>src/main/resources/liquibase/myChangeLog.xml</changeLogFile>
                 </configuration>
                 <executions>
                     <execution>
