@@ -13,17 +13,14 @@ public class ConnectionConfig {
 
     public static Connection getConnection() {
         Connection connection = null;
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Properties properties = new Properties();
-            try (InputStream inputStream = GenericRepository.class.getResourceAsStream("/db.properties")) {
-                properties.load(inputStream);
-            }
+        Properties properties = new Properties();
+        try (InputStream inputStream = GenericRepository.class.getResourceAsStream("/db.properties")) {
+            properties.load(inputStream);
+            Class.forName(properties.getProperty("driver"));
             String url = properties.getProperty("url");
             String username = properties.getProperty("username");
             String password = properties.getProperty("password");
-            connection= DriverManager.getConnection(url, username, password);
+            connection = DriverManager.getConnection(url, username, password);
         } catch (IOException | SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
